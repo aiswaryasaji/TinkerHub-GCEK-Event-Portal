@@ -1,23 +1,12 @@
-import event
-from django.http.request import validate_host
-from django.http.response import HttpResponseRedirect
 from event.models import Event, Student
 from django.shortcuts import render,redirect
 from django.contrib import messages
-import os
-from datetime import datetime, date
-import datetime
-from django.contrib.auth.models import User, auth
-from django import forms
-from . forms import EventForm
 
 
 # Create your views here.
 def index(request):
     return render(request,'events/index.html')
 
-def login(request):
-    return render(request,'events/login.html')
 
 def events(request):
     event_list = Event.objects.all()
@@ -36,12 +25,6 @@ def event_details(request,event_id):
         "event" : event,
         "count" : count
     })
-
-def bootcamp(request):
-    return render(request,'events/bootcamp.html')
-
-def concert(request):
-    return render(request,'events/concert.html')
 
 
 def register(request,event_id):

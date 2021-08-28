@@ -29,8 +29,11 @@
                 <nav>
                     <ul>
                         <li><a class="home" href ="{%url 'dashboard' %}">Dashboard</a></li>
-                        <li><a class="img" href ="{%url 'admin-logout' %}">Logout</a></li>
-                        </li>
+                        {% if user.is_authenticated %}
+                            <li><a class="img" href="{% url 'admin-logout' %}">Logout</a></li>
+                        {% else %}
+                            <li><a class="img" href="{% url 'admin-logout' %}">Admin Login</a></li>
+                        {% endif %}
                     </ul>
                    
                 </nav>
@@ -39,49 +42,58 @@
    
     <div class="admin-content">
     <div class="container p-30">
-        <div class="title">Data of Students</div>
-        <div class="row">
-            <div class="col-md-12 main-datatable">
-                <div class="card_body">
-                  
-                        <table style="width:100%;" id="filtertable" class="table cust-datatable dataTable no-footer">
-                            <thead class="hading">
-                                <tr>
-                                    
-                                    <td >Student Name</td>
-                                    <td>Age</td>
-                                    <td>Email</td>
-                                   <td>Phone Number</td>
-                                   <td>College</td>
-                                   <td>Semester</td>
-                                   <td>Gender</td>
-                                   <td>Registered Event</td>
-                                </tr>
-                            </thead>
-                            <tbody class="content">
-                            {% for student in students %}
-                                <tr>
-                                    
-                                    <td>{{ student.name }}</td>
-                                    <td>{{ student.age }}</td>
-                                    <td>{{ student.email }}</td>
-                                   <td>{{ student.phone }}</td>
-                                   <td>{{ student.college }}</td>
-                                   <td>{{ student.semester }}</td>
-                                   <td>{{ student.gender }}</td>
-                                   <td>{{ student.event }}</td>
-                                   
-                                    
-                                </tr>
-                                
-                            {% endfor %}
-                                  
-                            </tbody>
-                        </table>
+        {% if user.is_authenticated %}
+            <div class="title">Data of Students</div>
+            <div class="row">
+                <div class="col-md-12 main-datatable">
+                    <div class="card_body">
                     
+                            <table style="width:100%;" id="filtertable" class="table cust-datatable dataTable no-footer">
+                                <thead class="hading">
+                                    <tr>
+                                        
+                                        <td >Student Name</td>
+                                        <td>Age</td>
+                                        <td>Email</td>
+                                    <td>Phone Number</td>
+                                    <td>College</td>
+                                    <td>Semester</td>
+                                    <td>Gender</td>
+                                    <td>Registered Event</td>
+                                    </tr>
+                                </thead>
+                                <tbody class="content">
+                                {% for student in students %}
+                                    <tr>
+                                        
+                                        <td>{{ student.name }}</td>
+                                        <td>{{ student.age }}</td>
+                                        <td>{{ student.email }}</td>
+                                    <td>{{ student.phone }}</td>
+                                    <td>{{ student.college }}</td>
+                                    <td>{{ student.semester }}</td>
+                                    <td>{{ student.gender }}</td>
+                                    <td>{{ student.event }}</td>
+                                    
+                                        
+                                    </tr>
+                                    
+                                {% endfor %}
+                                    
+                                </tbody>
+                            </table>
+                        
+                    </div>
                 </div>
             </div>
-        </div>
+        {% else %}
+            <div class="alert alert-warning d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                Only Admin Can View This Page
+                </div>
+            </div>
+        {% endif %}
     </div>
     </div>
 </div>

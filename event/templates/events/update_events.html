@@ -29,8 +29,11 @@
                 <nav>
                     <ul>
                         <li><a class="home" href ="{%url 'dashboard' %}">Dashboard</a></li>
-                        <li><a class="img" href ="{%url 'admin-logout' %}">Logout</a></li>
-                        </li>
+                        {% if user.is_authenticated %}
+                            <li><a class="img" href="{% url 'admin-logout' %}">Logout</a></li>
+                        {% else %}
+                            <li><a class="img" href="{% url 'admin-logout' %}">Admin Login</a></li>
+                        {% endif %}
                     </ul>
                    
                 </nav>
@@ -39,54 +42,58 @@
    
     <div class="admin-content">
     <div class="container p-30">
-        <div class="title">Event Details</div>
-        <div class="row">
-            <div class="col-md-12 main-datatable">
-                <div class="card_body">
-                  
-                        <table style="width:100%;" id="filtertable" class="table cust-datatable dataTable no-footer">
-                            <thead class="hading">
-                                <tr>
-                                    <td >Event Name</td>
-                                    <td>Date& Time</td>
-                                    <td>Venue</td>
-                                   <td>About the event</td>
-                                   <td>Image
-                                   </td>
-                                </tr>
-                            </thead>
-                            <tbody class="content">
-                            {% for event in events %}
-                                <tr>
-                                    <td>{{ event }}</td>
-                                    <td>{{event.event_date}}</td>
-                                    <td>{{ event.venue }}</td>
-                                   <td>{{ event.description }}</td>
-                                    <td>
-                                        {% if event.image %}
-                                                <img src="{{ event.image.url }}" width="150" height="100">
-                                        {% endif %}
-                                    </td>
-                                    <td class="button">
-                                    <div class="btn-group">
-                                        <a href="{% url 'edit-event' event.id %}">
-                                            <button class="edit">Edit</button>  
-                                        </a>
-                                        <a href="{% url 'delete_event' event.id %}">
-                                            <button class="delete">Delete</button>
-                                        </a>
-                                    </div>
-                                </td> 
-                                </tr>
-                                
-                            {% endfor %}
-                                  
-                            </tbody>
-                        </table>
+        {% if user.is_authenticated %}
+            <div class="title">Event Details</div>
+            <div class="row">
+                <div class="col-md-12 main-datatable">
+                    <div class="card_body">
                     
+                            <table style="width:100%;" id="filtertable" class="table cust-datatable dataTable no-footer">
+                                <thead class="hading">
+                                    <tr>
+                                        <td >Event Name</td>
+                                        <td>Date& Time</td>
+                                        <td>Venue</td>
+                                    <td>About the event</td>
+                                    <td>Image
+                                    </td>
+                                    </tr>
+                                </thead>
+                                <tbody class="content">
+                                {% for event in events %}
+                                    <tr>
+                                        <td>{{ event }}</td>
+                                        <td>{{event.event_date}}</td>
+                                        <td>{{ event.venue }}</td>
+                                    <td>{{ event.description }}</td>
+                                        <td>
+                                            {% if event.image %}
+                                                    <img src="{{ event.image.url }}" width="150" height="100">
+                                            {% endif %}
+                                        </td>
+                                        <td class="button">
+                                        <div class="btn-group">
+                                            <a href="{% url 'edit-event' event.id %}">
+                                                <button class="edit">Edit</button>  
+                                            </a>
+                                            <a href="{% url 'delete_event' event.id %}">
+                                                <button class="delete">Delete</button>
+                                            </a>
+                                        </div>
+                                    </td> 
+                                    </tr>
+                                    
+                                {% endfor %}
+                                    
+                                </tbody>
+                            </table>
+                        
+                    </div>
                 </div>
             </div>
-        </div>
+        {% else %}
+            <h1 style="color: black;text-align: center;">Only Admin Can View This Page</h1>
+        {% endif %}
     </div>
     </div>
 </div>

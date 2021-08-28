@@ -24,50 +24,56 @@
                 <nav>
                     <ul>
                         <li><a class="home" href ="{%url 'dashboard' %}">Dashboard</a></li>v
-                        <li><a class="img" href="{% url 'admin-logout' %}">Logout
-                        </a>
-                        </li>
+                        {% if user.is_authenticated %}
+                            <li><a class="img" href="{% url 'admin-logout' %}">Logout</a></li>
+                        {% else %}
+                            <li><a class="img" href="{% url 'admin-logout' %}">Admin Login</a></li>
+                        {% endif %}
                     </ul>
                    
                 </nav>
             </div>
         </div>
-      <div class="sidebar">
-          
-          <img src="/static/img/pro.jpg">
-          <h4>Admin</h4>
-          <a href="#"><i class="fas fa-desktop"></i><span>Create Event</span></a>
-          <a href="{%url 'update_events' %}"><i class="fas fa-desktop"></i><span>Edit Event</span></a>
-          <a href="{%url 'data_students' %}"><i class="fas fa-user-friends"></i><span>Data of Students</span></a>
-          
-          
-      </div>  
-      <div class="admin-content">
+        {% if user.is_authenticated %}
+                <div class="sidebar">
+                
+                    <img src="/static/img/pro.jpg">
+                    <h4>Admin</h4>
+                    <a href="{% url 'create-event' %}"><i class="fas fa-desktop"></i><span>Create Event</span></a>
+                    <a href="{%url 'update_events' %}"><i class="fas fa-desktop"></i><span>Edit Event</span></a>
+                    <a href="{%url 'data_students' %}"><i class="fas fa-user-friends"></i><span>Data of Students</span></a>
+                    
+                    
+                </div>  
+                <div class="admin-content">
+                
+                <br>
+                <div class="container">
+                    <form method="POST" action="">
+                    {% csrf_token %}
+                        <label for="fname">Event Name</label>
+                        <input type="text" id="fname" name="name" placeholder="Event name..">
+                    
+                        <label for="lname">Date & Time</label>
+                        <input type="text" id="lname" name="event_date" placeholder="Date & Time...">
+                    
+                        <label for="country">Venue</label>
+                        <input type="text" id="lname" name="venue" placeholder="Venue..">
         
-        <br>
-        <div class="container">
-            <form method="POST" action="">
-             {% csrf_token %}
-              <label for="fname">Event Name</label>
-              <input type="text" id="fname" name="name" placeholder="Event name..">
-          
-              <label for="lname">Date & Time</label>
-              <input type="text" id="lname" name="event_date" placeholder="Date & Time...">
-          
-              <label for="country">Venue</label>
-              <input type="text" id="lname" name="venue" placeholder="Venue..">
-
-              <label for="country">Event Image</label><br><br>
-              <input type="file" id="lname" name="event_image" placeholder="Venue.."><br><br>
- 
-              <label for="subject">About the event</label>
-              <textarea id="subject" name="description" placeholder="Write something.." style="height:100px"></textarea><bt></bt>
-          
-              <input type="submit" value="Create">
-          
-            </form>
-          </div>
-    </div>
+                        <label for="country">Event Image</label><br><br>
+                        <input type="file" id="lname" name="event_image" placeholder="Venue.."><br><br>
+        
+                        <label for="subject">About the event</label>
+                        <textarea id="subject" name="description" placeholder="Write something.." style="height:100px"></textarea><bt></bt>
+                    
+                        <input type="submit" value="Create">
+                    
+                    </form>
+                    </div>
+            </div>
+        {% else %}
+            <h1 style="color: black;text-align: center;">Only Admin Can View This Page</h1>
+        {% endif %}
     </div>
     <div id="footer">
         <a class="footerlink" href="https://webmail.au.syrahost.com/" target="blank">Mail</a>
