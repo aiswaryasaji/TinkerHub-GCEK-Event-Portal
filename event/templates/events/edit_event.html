@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="{% static 'css/create.css' %}">
+</head>
+<body>
+    
+    <div class="main">
+        
+        <div class="of">
+            <img class="logo" src="{% static 'img/logo.png' %}" alt="logo of tinkerhub" >
+            
+                
+            
+            <div class="nav">
+                
+                <nav>
+                    <ul>
+                        <li><a class="img" href ="{%url 'admin-logout' %}">Logout</a></li>
+                        </li>
+                    </ul>
+                   
+                </nav>
+            </div>
+        </div>
+      <div class="sidebar">
+          
+          <img src="{% static 'img/pro.jpg' %}">
+          
+          <a href="{%url 'create-event' %}"><i class="fas fa-desktop"></i><span>Create Event</span></a>
+          <a href="{%url 'update_events' %}"><i class="fas fa-desktop"></i><span>Edit Event</span></a>
+          <a href="data.html"><i class="fas fa-user-friends"></i><span>Data of Students</span></a>
+          
+          
+      </div>  
+      <div class="admin-content">
+        
+        <br>
+        <div class="container">
+            <form method="POST" action="#">
+                {% csrf_token %}
+                 <label for="fname">Event Name</label>
+                 <input type="text" value="{{ event.name }}" id="fname" name="name" placeholder="Event name..">
+             
+                 <label for="lname">Date & Time</label>
+                 <input type="text" value="{{ event.event_date }}" id="lname" name="event_date" placeholder="Date & Time...">
+             
+                 <label for="country">Venue</label>
+                 <input type="text" value="{{ event.venue }}" id="lname" name="venue" placeholder="Venue..">
+   
+                 <label for="country">Event Image</label><br><br>
+                
+                 <input type="file" id="lname" name="event_image" placeholder="Venue.."><br><br>
+    
+                 <label for="subject">About the event</label>
+                 <input type="text" value="{{ event.description }}" id="lname" name="description" placeholder="About the event">
+             
+                 <input type="submit" value="Edit">
+             
+               </form>
+            <br>
+          </div>
+          <div class="footer">
+    </div>
+    </div>
+    </div>
+    <div id="footer">
+        <a class="footerlink" href="https://webmail.au.syrahost.com/" target="blank">Mail</a>
+        <a class="footerlink" href="#">Intagram</a>
+        <a class="footerlink" href="#">Github</a>
+        <p>&copy; TinkerHub GCEK | All Rights Reserved</p>
+    </div>
+    <script src="https://kit.fontawesome.com/97124b44f5.js" crossorigin="anonymous"></script>
+</body>
+</html>

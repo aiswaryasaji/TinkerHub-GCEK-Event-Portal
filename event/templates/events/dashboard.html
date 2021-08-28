@@ -1,0 +1,54 @@
+{% load static %}
+<!--{% static '/' %}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/dashboard.css' %}">
+</head>
+<body>
+    
+    <div class="main">
+        
+        <div class="of">
+            <img class="logo" src="/static/img/logo.png" alt="logo of tinkerhub" >
+            
+                
+            
+            <div class="nav">
+                
+                <nav>
+                    <ul>
+                        <li><a class="img" href="{% url 'admin-logout' %}">Logout</a></li>
+                    </ul>
+                   
+                </nav>
+            </div>
+        </div>
+      <div class="sidebar">
+          
+          <img src="/static/img/pro.jpg">
+          <h4>Admin</h4>
+          <a href="{% url 'create-event' %}"><i class="fas fa-desktop"></i><span>Create Event</span></a>
+          <a href="{%url 'update_events' %}"><i class="fas fa-desktop"></i><span>Edit Event</span></a>
+          <a href="{%url 'data_students' %}"><i class="fas fa-user-friends"></i><span>Data of Students</span></a>
+          
+          
+      </div>  
+      
+      
+    </div>
+  
+ 
+    <div id="footer">
+        <a class="footerlink" href="https://webmail.au.syrahost.com/" target="blank">Mail</a>
+        <a class="footerlink" href="#">Intagram</a>
+        <a class="footerlink" href="#">Github</a>
+        <p>&copy; TinkerHub GCEK | All Rights Reserved</p>
+    </div>
+    <script src="https://kit.fontawesome.com/97124b44f5.js" crossorigin="anonymous"></script>
+</body>
+</html>

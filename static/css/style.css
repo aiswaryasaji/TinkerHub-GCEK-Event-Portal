@@ -1,0 +1,244 @@
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+
+
+.main{
+    width: 100%;
+    height: 100vh;
+    background-image: url(/static/img/background.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;  
+}
+.logo{
+    width: 10%;
+    border-radius: 50%;
+    margin-left: 35px;
+    margin-top: 0;
+}
+.nav{
+    float: right;
+    list-style: none;
+    margin-top: 30px;
+     font-family: 'Noto Serif', serif;
+     font-size: 15px;
+     font-weight: bold;
+}
+.nav a{
+    text-decoration: none;
+    color: #fff;
+}
+a:hover{
+    color: yellow;
+}
+.nav li{
+    display: inline-block;
+    margin-right: 45px;
+    margin-top: 25px;
+}
+.head{
+    font-family: 'Courgette', cursive;
+    font-size: 30px;
+    color: aqua;
+    text-align: center;
+    margin-top: 100px;
+}
+#section{
+    background-color:white; 
+    overflow: hidden; 
+}
+#section h1{
+    color: darkred;
+    font-weight: bold;
+    font-family: 'Courgette', cursive ;
+    text-align: center;
+    padding-top: 50px;
+}
+.container{
+    margin-top: 100px;
+    position: relative;
+    width: 1100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding :30px;
+    margin: auto;
+}
+.container .card{
+    position: relative;
+    max-width: 300px;
+    height: 215px;
+    background: #fff;
+    margin: 30px 10px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    transition: 0.3s ease-in-out;
+}
+.container .card:hover{
+    height: 440px;
+}
+.container .card .image{
+    position:relative;
+    width: 260px;
+    height: 170px;
+    top: -60px;
+    left: 20px;
+    z-index: 1;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+.container .card .image img{
+    max-width: 100%;
+    border-radius: 6px;
+}
+.container .card .content{
+    position: relative;
+    margin-top: -140px;
+    padding: 10px 15px;
+    text-align: center;
+    color: #111;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+.container .card:hover .content{
+    visibility: visible;
+    opacity: 1;
+    margin-top: -30px;
+    transition-delay: 0.3s;
+}
+
+.content p{
+    margin-top: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+.content a{
+    margin-top: 10px;
+    float: left;
+    color: forestgreen;
+    font-size: 16px;
+    text-decoration: none;
+}
+.last{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+button{
+    float: right;
+    position: relative;
+    text-align: center;
+    width: 100px;
+    padding:0px;
+    font-size: 20px;
+    border: 1px solid #15f4ee;
+    cursor:pointer;
+    border-radius: 100px;
+    transition: 1.5s;
+}
+ h2{
+    font-family: 'Rampart One', cursive;
+    color: deeppink;
+    margin-bottom: 15px;
+    text-align: center;
+}
+#contact{
+    background-color: white;    
+    position:relative;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden; 
+    margin-bottom: 0;
+
+}
+.content h1{
+    color: darkred;
+    font-weight: bold;
+    font-family: 'Courgette', cursive ;
+    text-align: center;
+    padding-top: 50px;
+}
+#contact p{
+    font-size: 20px;
+    font-family: 'Artifika', serif;
+    margin-top: 20px;
+}
+.contact .content{
+    text-align: center;
+}
+.text h3{
+    font-size: 20px;
+    font-family: 'Unkempt', cursive;
+}
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.container .contact-info{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.container .contact-info .box{
+    position: relative;
+    
+    display: flex;
+}
+.container .contact-info .box .icon{
+    min-width: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    font-size: 22px;
+    
+}
+.container .contact-info .box .text{
+   
+    margin-left: 20px;
+}
+#para{
+    font-size: 10px;
+}
+#footer{
+    background-color: #030303;
+    padding: 5px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#footer .footerlink{
+    margin-left: 10px;
+    text-decoration: none;
+    font-family: 'Spartan', sans-serif;
+}
+#footer .footerlink:hover{
+    color: #751212;
+    
+}
+#footer p{
+    margin-top: 10px;
+    font-family: 'Spartan', sans-serif;
+    color: white;
+}

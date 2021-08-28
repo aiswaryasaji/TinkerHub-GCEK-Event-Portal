@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    height: auto;
+    background: url(/static/img/background2.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.head{
+    margin-left: 200px;
+}
+
+.container{
+    max-width: 700px;
+    width: 100%;
+    background: url(/static/img/background2.jpg);
+    background-position: center center;
+    border-radius: 7px;
+}
+.container .title{
+    color: white;
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+}
+.container form .user-details{
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: calc(80% / 2 - 20px);
+}
+.user-details .input-box .details{
+    display: block;
+    font-size: larger;
+    font-weight: 550;
+    margin-bottom: 5px;
+}
+.user-details .input-box input{
+    height: 30px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+}
+form .button{
+    height: 45px;
+    margin: 45px 0;
+    text-align: center;
+   padding-bottom: 20px;
+}
+form .button input{
+    height: 100%;
+    width: 80%;
+    font-weight: 600;
+    font-size: large;
+    border-radius: 5px;
+    border-color: white;
+    cursor: pointer;
+}
+.logo{
+    width: 10%;
+    border-radius: 50%;
+    margin-right: 300px;
+    margin-top: 0;
+}
+.nav{
+    float: right;
+    list-style: none;
+    margin-top: 30px;
+     font-family: 'Noto Serif', serif;
+     font-size: 15px;
+     font-weight: bold;
+     margin-left: 180px;
+}
+.nav a{
+    text-decoration: none;
+    color: #fff;
+}
+a:hover{
+    color: yellow;
+}
+.nav li{
+    display: inline-block;
+    margin-right: 45px;
+    margin-top: 25px;
+}

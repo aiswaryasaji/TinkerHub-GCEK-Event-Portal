@@ -1,0 +1,121 @@
+{% load static %}
+<!--{% static '/' %}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unkempt&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Artifika&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <div class="main" >
+        <img class="logo" src="/static/img/logo.png" alt="logo of tinkerhub">
+        <div class="nav">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'events' %}">Events</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'admin-logout' %}">Admin Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'admin-login' %}">Admin Login</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+        <div class="head">
+            <h1>TinkerHub GCEK <br>Event Portal</h1>
+        </div>
+    </div>
+    <div id="section">
+        <h1>Events</h1>
+        {% for event in event_list %}
+        <div class="container">
+            <div class="card">
+                <div class="image">
+                    <img src="{{ event.image.url }}" alt="image of card 1">
+                </div>
+                <h2>{{ event }}</h2>
+                <div class="content"> 
+                    
+                    <p>{{ event.description }}</p>
+                    <br><a href="{% url 'event-details' event.id %}">View Details</a>
+                    <button><a class="last" href="{% url 'register' event.id %}">Register</a></button>
+                </div>
+            </div>
+    </div>
+    {% endfor %}
+    <div id="contact">
+        <div class="content">
+            <h1>Contact Us</h1>
+            <p>If You have any doubt free feel to contact us!..</p>
+        </div>
+        <div class="container">
+            <div class="contact-info">
+                <div class="box">
+                    <div class="icon"><i class="fas fa-map-marker-alt"></i>
+                    </div>
+                        <div class="text">
+                           <h3>Address</h3> 
+                           <p id="para">Government College of Engineering Kannur, Dharmasala, Kerala 670563</p>
+                        </div>
+                    </div>  
+                    <br>
+                    <div class="box">
+                        <div class="icon"><i class="fas fa-phone-volume"></i> </div>
+                            <div class="text">
+                               <h3>Phone</h3> 
+                               <p id="para">670563</p>
+                            </div>
+                     </div> 
+                        <br>
+                        <div class="box">
+                            <div class="icon"><i class="far fa-envelope"></i></div>
+                                <div class="text">
+                                   <h3>email</h3> 
+                                   <p id="para">aiswarya2saji@gmail.com</p>
+                                </div>
+                            
+                        </div>
+            </div>
+           
+       </div>
+
+    </div>
+    <div id="footer">
+        <a class="footerlink" href="https://webmail.au.syrahost.com/" target="blank">Mail</a>
+        <a class="footerlink" href="#">Intagram</a>
+        <a class="footerlink" href="#">Github</a>
+        <p>&copy; TinkerHub GCEK | All Rights Reserved</p>
+    </div>
+    <script src="https://kit.fontawesome.com/97124b44f5.js" crossorigin="anonymous"></script>
+   
+</body>
+</html>

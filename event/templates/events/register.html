@@ -1,0 +1,71 @@
+{% load static %}
+<!--{% static '/' %}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Registration</title>
+  <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+  <div class="main" >
+    <img class="logo" src="/static/img/logo.png" alt="logo of tinkerhub">
+    <div class="nav">
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                
+            </ul>
+        </nav>
+    </div>
+    <div class="head">
+      <div class = "container">
+        <div class = "title">Registration</div>
+        <form action="" method="POST">
+          {% csrf_token %}
+
+          <div class = "user-details">
+            <div class = "input-box">
+              <span class = "details">Full Name</span>
+              <input type="text" name="name" placeholder="Enter Your Name">
+            </div>
+            <div class = "input-box">
+              <span class = "details">Age</span>
+              <input type="number" name="age" placeholder="Enter Your Age">
+            </div>
+            <div class = "input-box">
+              <span class = "details">Email</span>
+              <input type="email" name="email" placeholder="Enter Your email">
+            </div>
+            <div class = "input-box">
+              <span class = "details">Phone Number</span>
+              <input type="number" name="phone" placeholder="Enter Your Ph. no.">
+            </div>
+            <div class = "input-box">
+              <span class = "details">Name of College</span>
+              <input type="Text" name="college" placeholder="Enter your College Name">
+            </div>
+            <div class = "input-box">
+              <span class = "details">Current Semester</span>
+              <input type="number" name="sem" placeholder="Enter your Current Semester">
+            </div>
+            <div class = "input-box">
+              <span class = "details">Gender</span>
+              <input type="text" name="gender" placeholder="Enter your Gender">
+            </div>
+            <div class = "input-box">
+              <span class = "details">Event</span>
+              <input type="text" value="{{ event }}" name="event" placeholder="Enter interested event" readonly>
+            </div>
+          </div>
+          <div class = "button">
+            <input type="submit" value="Register">
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+</body>
+</html>

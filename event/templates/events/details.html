@@ -1,0 +1,75 @@
+{% load static %}
+<!--{% static '/' %}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event details</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/details.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unkempt&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Artifika&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+</head>
+<body>
+    <div class="main" >
+        <div class="of">
+        <a href="{% url 'home' %}"><img class="logo" src="{% static 'img/logo.png' %}" alt="logo of tinkerhub"></a>
+        <div class="nav">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="#footer">Contact Us</a></li>
+                   
+                </ul>
+            </nav>
+        </div>
+    </div>
+        <div class="first">
+            <h1>{{ event }}</h1>
+            <img src="{{ event.image.url }}" alt="image of buit from zero" width="400px" height="440px"><br>
+           
+        
+            <div class="text">
+                <button class="onn">About The Event</button>
+                <p>{{ event.description }}</p>
+                <p style="color: brown;">Number of registerd students : {{ count }} </p>
+                <button class="rand">Date & Time</button>
+                <p>{{ event.event_date }}<br>{{ event.venue }}</p>
+                
+            </div>
+        </div>
+
+          <br>
+        
+          <div id="footer">
+            <a class="footerlink" href="https://webmail.au.syrahost.com/" target="blank">Mail</a>
+            <a class="footerlink" href="#">Intagram</a>
+            <a class="footerlink" href="#">Github</a>
+            <p>&copy; TinkerHub GCEK | All Rights Reserved</p>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/97124b44f5.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
