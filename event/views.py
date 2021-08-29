@@ -40,7 +40,7 @@ def register(request,event_id):
         student = Student(name=name,age=age,college=college,gender=gender,event=event,email=email,phone=phone,semester=sem)
         student.save()
         messages.success(request,("Registeresd successfully"))
-        return redirect('home')
+        return redirect('create-event')
     else:
         return render(request,'events/register.html',{
             "event" : event
