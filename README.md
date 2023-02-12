@@ -7,7 +7,7 @@ view and register for the events.
 
 - This website has functionalities like event creation, event updation, event deletion, checking all events, registering for events and retrieve the student details.
 
-- You can try this website http://eventportal.pythonanywhere.com/
+- You can try this website http://aiswaryasaji.pythonanywhere.com/
 
 **Team Members & GitHub ID:**
 
